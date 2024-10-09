@@ -5,6 +5,11 @@
 */
 
 #include "system.h"
+#include "display.h"
+#include "ir.h"
+#include "scoring.h"
+#include "nav.h"
+#include "led.h"
 
 int main (void)
 {
