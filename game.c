@@ -5,21 +5,39 @@
 */
 
 #include "system.h"
-#include "display.h"
+#include "pacer.h"
+
+#include "display_char.h"
 #include "ir.h"
 #include "scoring.h"
 #include "nav.h"
 #include "led.h"
 
+//preprocessor constants for pacer
+#define PACER_RATE 500
+#define MESSAGE_RATE 10
+
 int main (void)
 {
+    //initialise drivers
     system_init ();
+    pacer_init (PACER_RATE);
 
+    //initialise custom modules
+    /*display_init ();
+    ir_init ();
+    scoring_init ();
+    nav_init ();
+    led_init ();*/
+
+    //Variables to display and receive characters
+    char CharacterSelected = 'R';
+    char temp;
 
     while (1)
     {
 
-
+        pacer_wait ();
 
     }
 }
