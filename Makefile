@@ -29,6 +29,9 @@ pacer.o: ../../utils/pacer.c ../../drivers/avr/system.h ../../drivers/avr/timer.
 timer.o: ../../drivers/avr/timer.c ../../drivers/avr/system.h ../../drivers/avr/timer.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
+pio.o: ../../drivers/avr/pio.c ../../drivers/avr/pio.h ../../drivers/avr/system.h
+	$(CC) -c $(CFLAGS) $< -o $@
+
 #OUR FILES
 display_char.o: display_char.c display_char.h
 	$(CC) -c $(CFLAGS) $< -o $@
@@ -36,7 +39,7 @@ display_char.o: display_char.c display_char.h
 ir.o: ir.c ir.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-led.o: led.c led.h
+led.o: led.c led.h ../../drivers/avr/pio.h ../../drivers/avr/system.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 nav.o: nav.c nav.h

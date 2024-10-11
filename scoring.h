@@ -1,6 +1,6 @@
 /** @file scoring.h
-    @authors 
-    @date 
+    @authors N.H. Coetzee: nco63
+    @date 11/10/2024
     @brief header file for the scoring module
 */
 
@@ -8,5 +8,21 @@
 #ifndef SCORING_H
 #define SCORING_H
 
+//public scoring variables
+#include <stdint.h>
+uint8_t playerScore;
+uint8_t enemyScore;
+uint8_t win;
+uint8_t lose;
+uint8_t draw;
+
+//initialise scores
+void scoring_init (void);
+
+//determine the winner of the round, returns 1 if you won, 0 if you lost and 2 for a draw
+uint8_t compare (char selfChoice, char enemyChoice);
+
+//checks if a player has won the game, returns 1 if you won and 0 if you lost
+uint8_t checkWin ();
 
 #endif

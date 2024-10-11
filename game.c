@@ -23,12 +23,15 @@ int main (void)
     system_init ();
     pacer_init (PACER_RATE);
 
+    uint16_t ledTick = 0;
+    bool led_is_on = 0;
+
     //initialise custom modules
-    /*display_init ();
-    ir_init ();
+    //display_init ();
+    //ir_init ();
     scoring_init ();
-    nav_init ();
-    led_init ();*/
+    //nav_init ();
+    led_init ();
 
     //Variables to display and receive characters
     char CharacterSelected = 'R';
@@ -38,6 +41,20 @@ int main (void)
     {
 
         pacer_wait ();
+        ledTick++;
+
+        if (ledTick >= 200) {
+            if (!led_is_on) {
+                led_on();
+                led_is_on = 1;
+            
+            } else if (led_is_on) {
+                led_off();
+                led_is_on = 0;
+            }
+            
+            ledTick = 0;
+        }
 
     }
 }
