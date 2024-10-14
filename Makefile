@@ -58,7 +58,7 @@ scoring.o: scoring.c scoring.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 # Link: create ELF output file from object files.
-game.out: game.o system.o display_char.o ir.o led.o nav.o scoring.o pacer.o timer.o
+game.out: game.o system.o display_char.o ir.o led.o nav.o scoring.o pacer.o timer.o ir_uart.o tinygl.o navswitch.o
 	$(CC) $(CFLAGS) $^ -o $@ -lm
 	$(SIZE) $@
 
