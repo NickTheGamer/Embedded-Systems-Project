@@ -9,6 +9,7 @@
 #include "pacer.h"
 #include "tinygl.h"
 #include "../fonts/font5x7_1.h"
+#include "navswitch.h"
 
 #define PACER_RATE 500  // Pacer Rate
 #define MESSAGE_RATE 10 // Message Rate
