@@ -8,20 +8,17 @@
 #ifndef NAV_H
 #define NAV_H
 
-#include "system.h"
-#include "pacer.h"
 #include "navswitch.h"
-#include "tinygl.h"
 
 //Function to show single character display
-void display_character(char character);
+//void display_character(char character);
 
 
-//initialise the UCFK4
-void system_setup(void);
+//Initialise navswitch
+void nav_init (void);
 
 
-//Handle the nav switch, display and input and update the character.
+//Handle the nav switch, and input and update the character.
 char handle_navswitch_input(char character);
 
 

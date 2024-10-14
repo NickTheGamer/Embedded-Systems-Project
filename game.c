@@ -30,7 +30,7 @@ int main (void)
     //display_init ();
     ir_init ();
     scoring_init ();
-    //nav_init ();
+    nav_init ();
     led_init ();
 
     //Variables to display and receive characters

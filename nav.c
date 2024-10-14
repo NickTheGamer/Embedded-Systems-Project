@@ -5,35 +5,24 @@
 */
 
 #include "nav.h"
-#include "system.h"
-#include "pacer.h"
-#include "tinygl.h"
-#include "../fonts/font5x7_1.h"
-#include "navswitch.h"
 
 #define PACER_RATE 500  // Pacer Rate
 #define MESSAGE_RATE 10 // Message Rate
 
 // Display a character on the display
-void display_character (char character)
+/*void display_character (char character)
 {
     char buffer[2];
 
     buffer[0] = character;
     buffer[1] = '\0';
     tinygl_text (buffer);
-}
+}*/
 
-//Initalisation of Components on UCFK4
-
-void system_setup(void)
+//Initalisation of navswitch
+void nav_init (void)
 {
-    system_init();
-    tinygl_init(PACER_RATE);
-    tinygl_font_set(&font5x7_1);
-    tinygl_text_speed_set(MESSAGE_RATE);
     navswitch_init();
-    pacer_init(PACER_RATE);
 }
 
 //Function to handle the Nav inputs
