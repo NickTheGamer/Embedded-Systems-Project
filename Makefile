@@ -32,6 +32,15 @@ timer.o: ../../drivers/avr/timer.c ../../drivers/avr/system.h ../../drivers/avr/
 pio.o: ../../drivers/avr/pio.c ../../drivers/avr/pio.h ../../drivers/avr/system.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
+ir_uart.o: ../../drivers/avr/ir_uart.c ../../drivers/avr/ir_uart.h
+	$(CC) -c $(CFLAGS) $< -o $@
+
+tinygl.o: ../../drivers/avr/tinygl.c ../../drivers/avr/tinygl.h
+	$(CC) -c $(CFLAGS) $< -o $@
+
+navswitch.o: ../../drivers/avr/navswitch.c ../../drivers/avr/navswitch.h
+	$(CC) -c $(CFLAGS) $< -o $@
+
 #OUR FILES
 display_char.o: display_char.c display_char.h
 	$(CC) -c $(CFLAGS) $< -o $@
