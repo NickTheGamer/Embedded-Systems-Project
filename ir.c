@@ -29,7 +29,10 @@ char ir_recieve(void)
 {
     if (ir_uart_read_ready_p())
     {
-        return ir_uart_getc();
+        char temp = ir_uart_getc();
+        if (temp == 'R' || temp == 'P' || temp == 'S') {
+            return temp;
+        }
     }
     return '\0';
 }
