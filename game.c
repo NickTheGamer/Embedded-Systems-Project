@@ -28,14 +28,14 @@ int main (void)
 
     //initialise custom modules
     //display_init ();
-    //ir_init ();
+    ir_init ();
     scoring_init ();
     //nav_init ();
     led_init ();
 
     //Variables to display and receive characters
-    char CharacterSelected = 'R';
-    char temp;
+    //char CharacterSelected = 'R';
+    //char temp = '\0';
 
     while (1)
     {

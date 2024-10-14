@@ -17,7 +17,7 @@ void ir_send(char character);
 
 
 //Recieve character from IR
-char ir_recieved(void);
+char ir_recieve(void);
 
 
 #endif //IR_H

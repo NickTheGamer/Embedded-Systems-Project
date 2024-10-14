@@ -23,6 +23,6 @@ void scoring_init (void);
 uint8_t compare (char selfChoice, char enemyChoice);
 
 //checks if a player has won the game, returns 1 if you won and 0 if you lost
-uint8_t checkWin ();
+uint8_t checkWin (void);
 
 #endif
