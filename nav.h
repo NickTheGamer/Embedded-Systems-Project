@@ -1,5 +1,5 @@
 /** @file nav.h
-    @authors Jce61 ___
+    @authors J.Cercado jce61, N.H. Coetzee nco63
     @date 15/10/24
     @brief header file for the navigation module
 */

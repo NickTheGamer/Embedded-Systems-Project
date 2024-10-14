@@ -1,32 +1,38 @@
 /** @file ir.c
-    @authors Justin Cercado jce61 
-    @date 10/12/24
+    @authors Justin Cercado jce61, N.H. Coetzee nco63
+    @date 15/10/24
     @brief implementation file for the IR communication module
 */
 
 #include "ir.h"
-#include <avr/io.h> //for the Funkit
+#include "ir_uart.h"
 
-//intitalisation
-void ir_init(void) {
-    //set up code
-    DDRD &= ~(1 << IR_PIN); //unsure yet, need to check this if it works just typing idea for now
 
-    PORTD != (1 << IR_PIN);
+// Initalise the IR 
+void ir_init(void)
+{
+    ir_uart_init();
 }
 
-int ir_signal(void) {
-    
-    if(!(PIND & (1 << IR_PIN))) {
-        if (code == 0x1A) {
-            return 1; //rock
-        } else if (code == 0x1B) {
-            return 2; //paper
-        } else if (code == 0x1C) {
-            return 3; //scissors
-        }
-
+//Send a character from the navswitch
+void ir_send(char character)
+{
+    if (ir_uart_write_ready_p())
+    {
+        ir_uart_putc(character);
     }
-
-    return 0;
 }
+
+
+//Reciever
+char ir_recieve(void)
+{
+    if (ir_uart_read_ready_p())
+    {
+        return ir_uart_getc();
+    }
+    return '\0';
+}
+
+
+

@@ -1,5 +1,5 @@
 /** @file nav.c
-    @authors Jce61, ___
+    @authors J.Cercado jce61, N.H. Coetzee nco63
     @date 15/10/24
     @brief implementation file for the navigation module
 */
@@ -82,28 +82,5 @@ char handle_navswitch_input(char character)
     return character;
 }
 
-//start up
-int main(void);
-{
-    char character = 'R';
-    
-    system_setup();
 
-    while (1)
-    {
-        pacer_wait();
-        tinygl_update();
-
-        
-    //Navswitch input and update the character shown
-    character = handle_navswitch_input(character);
-
-    //display it
-    display_character(character);
-
-    }
-    
-    return 0;
-
-}
 

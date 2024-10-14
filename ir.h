@@ -1,5 +1,5 @@
 /** @file ir.h
-    @authors Justin Cercado @jce61
+    @authors Justin Cercado @jce61,  N.H. Coetzee nco63
     @date 12/10/2024
     @brief header file for the IR communication module
 */
@@ -11,8 +11,13 @@
 //initialise IR 
 void ir_init(void);
 
-//Player move based on signal time(1 = rock, 2 = Paper, 3 = Scissors)
-int ir_get_signal(void);
+
+//send character from IR
+void ir_send(char character);
+
+
+//Recieve character from IR
+char ir_recieved(void);
 
 
 #endif //IR_H
