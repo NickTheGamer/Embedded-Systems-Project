@@ -27,12 +27,17 @@ void display_character (char character)
 
 void display_text (uint8_t result)
 {
-    tinygl_text_mode_set (TINYGL_TEXT_MODE_SCROLL);
+    static bool first_time = 0;
 
-    if (result) {
-        tinygl_text (WIN_TEXT);
-    } else {
-        tinygl_text (LOSE_TEXT);
+    if (!first_time) {
+        tinygl_text_mode_set (TINYGL_TEXT_MODE_SCROLL);
+        first_time = 1;
+
+        if (result) {
+            tinygl_text (WIN_TEXT);
+        } else {
+            tinygl_text (LOSE_TEXT);
+        }
     }
 }
 

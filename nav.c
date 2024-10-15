@@ -16,8 +16,6 @@ void nav_init (void)
 
 char handle_navswitch_input(char character)
 {
-    navswitch_update(); // To update the state of the nav switch
-
     //cycle foward (R > P >S) when navswitch is pushed north
     if(navswitch_push_event_p(NAVSWITCH_NORTH))
     {
