@@ -9,17 +9,7 @@
 #define PACER_RATE 500  // Pacer Rate
 #define MESSAGE_RATE 10 // Message Rate
 
-// Display a character on the display
-/*void display_character (char character)
-{
-    char buffer[2];
 
-    buffer[0] = character;
-    buffer[1] = '\0';
-    tinygl_text (buffer);
-}*/
-
-//Initalisation of navswitch
 void nav_init (void)
 {
     navswitch_init();
