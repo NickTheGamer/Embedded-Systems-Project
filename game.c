@@ -27,20 +27,22 @@ int main (void)
     bool led_is_on = 0;
 
     //initialise custom modules
-    //display_init ();
+    display_char_init (PACER_RATE, MESSAGE_RATE);
     ir_init ();
     scoring_init ();
     nav_init ();
     led_init ();
 
     //Variables to display and receive characters
-    //char CharacterSelected = 'R';
-    //char temp = '\0';
+    char CharacterSelected = 'R';
 
     while (1)
     {
 
         pacer_wait ();
+        display_char_update ();
+        nav_update ();
+        
         ledTick++;
 
         if (ledTick >= 200) {
@@ -55,6 +57,8 @@ int main (void)
             
             ledTick = 0;
         }
+
+        display_character (CharacterSelected);
 
     }
 }

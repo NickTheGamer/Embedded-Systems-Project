@@ -10,17 +10,15 @@
 
 #include "navswitch.h"
 
-//Function to show single character display
-//void display_character(char character);
-
-
 //Initialise navswitch
 void nav_init (void);
 
 
 //Handle the nav switch, and input and update the character.
-char handle_navswitch_input(char character);
+char handle_navswitch_input (char character);
 
 
+//update once per loop
+void nav_update (void);
 
 #endif

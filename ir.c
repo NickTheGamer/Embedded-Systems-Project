@@ -23,7 +23,6 @@ void ir_send(char character)
     }
 }
 
-
 //Reciever
 char ir_recieve(void)
 {
@@ -36,6 +35,3 @@ char ir_recieve(void)
     }
     return '\0';
 }
-
-
-

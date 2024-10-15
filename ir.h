@@ -9,15 +9,15 @@
 #define IR_H
 
 //initialise IR 
-void ir_init(void);
+void ir_init (void);
 
 
 //send character from IR
-void ir_send(char character);
+void ir_send (char character);
 
 
 //Recieve character from IR
-char ir_recieve(void);
+char ir_recieve (void);
 
 
 #endif //IR_H

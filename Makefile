@@ -63,7 +63,7 @@ tinygl.o: ../../utils/tinygl.c ../../drivers/avr/system.h ../../drivers/display.
 	$(CC) -c $(CFLAGS) $< -o $@
 
 #OUR FILES
-display_char.o: display_char.c display_char.h
+display_char.o: display_char.c display_char.h ../../utils/tinygl.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 ir.o: ir.c ir.h
