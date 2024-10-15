@@ -1,6 +1,6 @@
 /** @file scoring.c
     @authors N.H. Coetzee: nco63
-    @date 11/10/2024
+    @date started: 11/10/2024 last edited: 
     @brief implementation file for the scoring module
 */
 
@@ -15,46 +15,39 @@ void scoring_init (void)
     win = 1;
     lose = 0;
     draw = 2;
+    game_incomplete = 3;
 }
 
-uint8_t compare (char selfChoice, char enemyChoice)
+void compare (char selfChoice, char enemyChoice)
 {
-    if (selfChoice == enemyChoice) {
-        return draw;
-    }
 
-    else if (selfChoice == 'R') {
+    if (selfChoice == 'R') {
         if (enemyChoice == 'P') {
             enemyScore++;
-            return lose;
         } else if (enemyChoice == 'S') {
             playerScore++;
-            return win;
+            led_flash ();
         }
     }
 
     else if (selfChoice == 'P') {
         if (enemyChoice == 'R') {
             playerScore++;
-            return win;
+            led_flash ();
 
         } else if (enemyChoice == 'S') {
             enemyScore++;
-            return lose;
         }
     }
 
     else if (selfChoice == 'S') {
         if (enemyChoice == 'R') {
             enemyScore++;
-            return lose;
         } else if (enemyChoice == 'P') {
             playerScore++;
-            return win;
+            led_flash ();
         }
     }
-
-    return ERROR;
 }
 
 uint8_t checkWin (void)
@@ -66,6 +59,6 @@ uint8_t checkWin (void)
     }
 
     else {
-        return ERROR;
+        return game_incomplete;
     }
 }

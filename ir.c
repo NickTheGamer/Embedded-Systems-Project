@@ -6,6 +6,7 @@
 
 #include "ir.h"
 #include "ir_uart.h"
+#include "scoring.h"
 
 
 // Initalise the IR 
@@ -24,14 +25,13 @@ void ir_send(char character)
 }
 
 //Reciever
-char ir_recieve(void)
+void ir_receive(char character_selected)
 {
     if (ir_uart_read_ready_p())
     {
         char temp = ir_uart_getc();
         if (temp == 'R' || temp == 'P' || temp == 'S') {
-            return temp;
+            compare(character_selected, temp);
         }
     }
-    return '\0';
 }

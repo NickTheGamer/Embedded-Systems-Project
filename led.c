@@ -29,3 +29,9 @@ void led_init (void)
 {
     pio_config_set(LED_PIO, PIO_OUTPUT_LOW);
 }
+
+
+void led_flash (void)
+{
+
+}

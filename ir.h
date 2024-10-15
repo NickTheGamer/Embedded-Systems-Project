@@ -16,8 +16,8 @@ void ir_init (void);
 void ir_send (char character);
 
 
-//Recieve character from IR
-char ir_recieve (void);
+//Recieve character from IR and call the scoring method
+void ir_receive (char character_selected);
 
 
 #endif //IR_H

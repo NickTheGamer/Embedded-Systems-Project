@@ -1,6 +1,6 @@
 /** @file game.c
     @authors N.H. Coetzee: nco63, J. Cercado: jce61
-    @date started: 09/10/2024
+    @date started: 09/10/2024 last updated: 15/10/2024
     @brief main loop for game
 */
 
@@ -16,6 +16,10 @@
 //preprocessor constants for pacer
 #define PACER_RATE 500
 #define MESSAGE_RATE 10
+
+//constants for game ending conditions
+#define WIN 1
+#define LOSE 0
 
 int main (void)
 {
@@ -35,6 +39,7 @@ int main (void)
 
     //Variables to display and receive characters
     char character_selected = 'R';
+    uint8_t game_result;
 
     while (1)
     {
@@ -44,6 +49,7 @@ int main (void)
         nav_update ();
 
         character_selected = handle_navswitch_input(character_selected);
+        ir_receive (character_selected);
         
         led_tick++;
 
@@ -61,7 +67,13 @@ int main (void)
         }
 
         display_character (character_selected);
-        //display_text (1);
+        game_result = checkWin ();
+
+        if (game_result == WIN) {
+            display_text (WIN);
+        } else if (game_result == LOSE) {
+            display_text (LOSE);
+        }
 
     }
 }

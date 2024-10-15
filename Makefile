@@ -66,7 +66,7 @@ tinygl.o: ../../utils/tinygl.c ../../drivers/avr/system.h ../../drivers/display.
 display_char.o: display_char.c display_char.h ../../utils/tinygl.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-ir.o: ir.c ir.h
+ir.o: ir.c ir.h scoring.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 led.o: led.c led.h ../../drivers/avr/pio.h ../../drivers/avr/system.h
@@ -75,7 +75,7 @@ led.o: led.c led.h ../../drivers/avr/pio.h ../../drivers/avr/system.h
 nav.o: nav.c nav.h ../../drivers/navswitch.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-scoring.o: scoring.c scoring.h
+scoring.o: scoring.c scoring.h led.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 # Link: create ELF output file from object files.
