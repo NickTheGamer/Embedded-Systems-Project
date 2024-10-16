@@ -56,7 +56,7 @@ int main (void)
             character_selected = handle_navswitch_input(character_selected);
         }
 
-        locked_in_choice = ir_receive (character_selected);
+        led_flash = !(ir_receive (character_selected));
         
         led_tick++;
 
