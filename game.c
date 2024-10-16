@@ -14,7 +14,7 @@
 #include "led.h"
 
 //preprocessor constants for pacer
-#define PACER_RATE 500
+#define PACER_RATE 300
 #define MESSAGE_RATE 10
 
 //constants for game ending conditions
@@ -22,7 +22,37 @@
 #define LOSE 0
 #define GAME_INCOMPLETE 3
 #define GAME_COMPLETE 4
-#define IR_TICK_RATE 200
+#define IR_TICK_RATE 10
+
+
+void game_loop (uint8_t* locked_in_choice, char* character_selected)
+{   
+    static uint8_t ir_tick = IR_TICK_RATE;
+
+    if (*locked_in_choice == 0) {
+
+        *character_selected = handle_navswitch_input(*character_selected);
+        *locked_in_choice = navswitch_push ();
+        led_off ();
+        ir_tick = IR_TICK_RATE;
+    }
+
+    if (*locked_in_choice == 1) {
+                
+        led_on ();
+
+        ir_tick++;
+        if (ir_tick >= IR_TICK_RATE) {
+            ir_send (*character_selected);
+            ir_tick = 0;
+        }
+
+        *locked_in_choice = ir_receive (*character_selected);
+    }
+
+    display_character (*character_selected);
+}
+
 
 int main (void)
 {
@@ -32,7 +62,6 @@ int main (void)
 
     uint8_t locked_in_choice = 0;
     uint8_t outcome = 0;
-    uint8_t ir_tick = 200;
 
     //initialise custom modules
     display_char_init (PACER_RATE, MESSAGE_RATE);
@@ -63,29 +92,8 @@ int main (void)
         }
 
         else if (game_result == GAME_INCOMPLETE) {
-
-            if (locked_in_choice == 0) {
-
-                character_selected = handle_navswitch_input(character_selected);
-                locked_in_choice = navswitch_push ();
-                led_off ();
-                ir_tick = IR_TICK_RATE;
-            }
-
-            if (locked_in_choice == 1) {
-                
-                led_on ();
-
-                ir_tick++;
-                if (ir_tick >= IR_TICK_RATE) {
-                    ir_send (character_selected);
-                    ir_tick = 0;
-                }
-
-                locked_in_choice = ir_receive (character_selected);
-            }
-
-            display_character (character_selected);
+            
+            game_loop(&locked_in_choice, &character_selected);
 
         } else if (game_result == GAME_COMPLETE) {
             display_text (outcome);
