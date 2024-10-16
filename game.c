@@ -30,12 +30,9 @@ int main (void)
     system_init ();
     pacer_init (PACER_RATE);
 
-    //uint16_t led_tick = 0;
-    //bool led_is_on = 0;
     uint8_t locked_in_choice = 0;
     uint8_t outcome = 0;
     uint8_t ir_tick = 200;
-    //uint8_t round_won;
 
     //initialise custom modules
     display_char_init (PACER_RATE, MESSAGE_RATE);
