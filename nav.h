@@ -20,7 +20,7 @@ char handle_navswitch_input (char character);
 
 
 //selecting character
-uint8_t navswitch_push (char character);
+uint8_t navswitch_push (void);
 
 
 //update once per loop

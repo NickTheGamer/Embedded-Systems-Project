@@ -63,11 +63,10 @@ void nav_update (void)
 }
 
 
-uint8_t navswitch_push (char character)
+uint8_t navswitch_push (void)
 {
     if (navswitch_push_event_p(NAVSWITCH_PUSH))
     {
-        ir_send (character);
         return 1; //lock navswitch
     } else {
         return 0;

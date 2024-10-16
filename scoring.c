@@ -5,6 +5,7 @@
 */
 
 #include "scoring.h"
+#define GAME_COMPLETE 4
 #define MAX_SCORE 3
 #define ERROR 5
 
@@ -16,6 +17,7 @@ void scoring_init (void)
     lose = 0;
     draw = 2;
     game_incomplete = 3;
+    game_finished_bool = 0;
 }
 
 void compare (char selfChoice, char enemyChoice)
@@ -52,13 +54,19 @@ void compare (char selfChoice, char enemyChoice)
 
 uint8_t checkWin (void)
 {
-    if (playerScore >= MAX_SCORE && enemyScore < MAX_SCORE) {
-        return win;
-    } else if (enemyScore >= MAX_SCORE && playerScore < MAX_SCORE) {
-        return lose;
+    if (game_finished_bool == 0) {
+        if (playerScore >= MAX_SCORE && enemyScore < MAX_SCORE) {
+            game_finished_bool = 1;
+            return win;
+        } else if (enemyScore >= MAX_SCORE && playerScore < MAX_SCORE) {
+            game_finished_bool = 1;
+            return lose;
+        }
+
+        else {
+            return game_incomplete;
+        }
     }
 
-    else {
-        return game_incomplete;
-    }
+    return GAME_COMPLETE;
 }

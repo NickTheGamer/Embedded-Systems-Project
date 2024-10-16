@@ -20,6 +20,8 @@
 //constants for game ending conditions
 #define WIN 1
 #define LOSE 0
+#define GAME_INCOMPLETE 3
+#define GAME_COMPLETE 4
 
 int main (void)
 {
@@ -30,6 +32,7 @@ int main (void)
     uint16_t led_tick = 0;
     bool led_is_on = 0;
     uint8_t locked_in_choice = 0;
+    uint8_t outcome = 0;
     //uint8_t round_won;
 
     //initialise custom modules
@@ -52,17 +55,19 @@ int main (void)
 
         if (locked_in_choice == 0) {
             character_selected = handle_navswitch_input(character_selected);
-            locked_in_choice = navswitch_push (character_selected);
+            locked_in_choice = navswitch_push ();
         }
 
         if (locked_in_choice == 1) {
+            //ir_send (character_selected);
             locked_in_choice = ir_receive (character_selected);
         }
-
-        led_tick += 1;
-
+        
         if (locked_in_choice == 1) {
-            if (led_tick >= 300) {
+            
+            led_tick += 1;
+
+            if (led_tick >= 200) {
                 if (!led_is_on) {
                     led_on();
                     led_is_on = 1;
@@ -75,14 +80,19 @@ int main (void)
                 led_tick = 0;
             }
         }
-
-        display_character (character_selected);
+        
         game_result = checkWin ();
 
         if (game_result == WIN) {
-            display_text (WIN);
+            outcome = WIN;
         } else if (game_result == LOSE) {
-            display_text (LOSE);
+            outcome = LOSE;
+        }
+
+        if (game_result == GAME_INCOMPLETE) {
+            display_character (character_selected);
+        } else if (game_result == GAME_COMPLETE) {
+            display_text (outcome);
         }
 
     }

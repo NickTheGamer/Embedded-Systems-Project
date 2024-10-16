@@ -18,6 +18,7 @@ uint8_t win;
 uint8_t lose;
 uint8_t draw;
 uint8_t game_incomplete;
+uint8_t game_finished_bool;
 
 //initialise scores
 void scoring_init (void);
