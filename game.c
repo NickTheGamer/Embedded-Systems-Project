@@ -56,14 +56,15 @@ int main (void)
         nav_update ();
 
         if (locked_in_choice == 0) {
+
             character_selected = handle_navswitch_input(character_selected);
             locked_in_choice = navswitch_push ();
             led_off ();
-            //ir_tick = IR_TICK_RATE;
+            ir_tick = IR_TICK_RATE;
         }
 
         if (locked_in_choice == 1) {
-            
+
             ir_tick++;
             if (ir_tick >= IR_TICK_RATE) {
                 ir_send (character_selected);
