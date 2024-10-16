@@ -8,6 +8,8 @@
 #ifndef IR_H
 #define IR_H
 
+#include <stdint.h>
+
 //initialise IR 
 void ir_init (void);
 
@@ -17,7 +19,7 @@ void ir_send (char character);
 
 
 //Recieve character from IR and call the scoring method
-void ir_receive (char character_selected);
+uint8_t ir_receive (char character_selected);
 
 
 #endif //IR_H

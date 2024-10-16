@@ -18,6 +18,10 @@ void nav_init (void);
 char handle_navswitch_input (char character);
 
 
+//selecting character
+bool navswitch_push (void);
+
+
 //update once per loop
 void nav_update (void);
 

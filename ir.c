@@ -25,13 +25,15 @@ void ir_send(char character)
 }
 
 //Reciever
-void ir_receive(char character_selected)
+uint8_t ir_receive(char character_selected)
 {
     if (ir_uart_read_ready_p())
     {
         char temp = ir_uart_getc();
         if (temp == 'R' || temp == 'P' || temp == 'S') {
             compare(character_selected, temp);
+            return 0; //release navswitch
         }
     }
+    return 1; //keep navswitch locked
 }

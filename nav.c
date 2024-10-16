@@ -63,4 +63,14 @@ void nav_update (void)
 }
 
 
+bool navswitch_push (void)
+{
+    if (navswitch_push_event_p(NAVSWITCH_PUSH))
+    {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
 

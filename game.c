@@ -29,6 +29,8 @@ int main (void)
 
     uint16_t led_tick = 0;
     bool led_is_on = 0;
+    bool locked_in_choice = 0;
+    bool led_flash = 0;
 
     //initialise custom modules
     display_char_init (PACER_RATE, MESSAGE_RATE);
@@ -48,12 +50,18 @@ int main (void)
         display_char_update ();
         nav_update ();
 
-        character_selected = handle_navswitch_input(character_selected);
-        ir_receive (character_selected);
+        locked_in_choice = navswitch_push ();
+
+        if (!locked_in_choice) {
+            character_selected = handle_navswitch_input(character_selected);
+        }
+
+        locked_in_choice = ir_receive (character_selected);
         
         led_tick++;
 
-        if (led_tick >= 200) {
+        if (led_flash) {
+            if (led_tick >= 200) {
             if (!led_is_on) {
                 led_on();
                 led_is_on = 1;
@@ -64,6 +72,7 @@ int main (void)
             }
             
             led_tick = 0;
+            }
         }
 
         display_character (character_selected);
