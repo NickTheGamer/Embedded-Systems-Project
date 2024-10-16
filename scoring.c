@@ -26,14 +26,14 @@ void compare (char selfChoice, char enemyChoice)
             enemyScore++;
         } else if (enemyChoice == 'S') {
             playerScore++;
-            led_flash ();
+            //led_flash ();
         }
     }
 
     else if (selfChoice == 'P') {
         if (enemyChoice == 'R') {
             playerScore++;
-            led_flash ();
+            //led_flash ();
 
         } else if (enemyChoice == 'S') {
             enemyScore++;
@@ -45,7 +45,7 @@ void compare (char selfChoice, char enemyChoice)
             enemyScore++;
         } else if (enemyChoice == 'P') {
             playerScore++;
-            led_flash ();
+            //led_flash ();
         }
     }
 }

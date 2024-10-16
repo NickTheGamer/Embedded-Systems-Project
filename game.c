@@ -30,6 +30,7 @@ int main (void)
     uint16_t led_tick = 0;
     bool led_is_on = 0;
     uint8_t locked_in_choice = 0;
+    //uint8_t round_won;
 
     //initialise custom modules
     display_char_init (PACER_RATE, MESSAGE_RATE);
@@ -58,10 +59,10 @@ int main (void)
             locked_in_choice = ir_receive (character_selected);
         }
 
-        led_tick++;
+        led_tick += 1;
 
-        /*if (locked_in_choice == 1) {
-            if (led_tick >= 200) {
+        if (locked_in_choice == 1) {
+            if (led_tick >= 300) {
                 if (!led_is_on) {
                     led_on();
                     led_is_on = 1;
@@ -73,7 +74,7 @@ int main (void)
             
                 led_tick = 0;
             }
-        }*/
+        }
 
         display_character (character_selected);
         game_result = checkWin ();
