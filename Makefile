@@ -66,7 +66,7 @@ tinygl.o: ../../utils/tinygl.c ../../drivers/avr/system.h ../../drivers/display.
 display_char.o: display_char.c display_char.h ../../utils/tinygl.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-ir.o: ir.c ir.h scoring.h
+ir.o: ir.c ir.h scoring.h ../../drivers/avr/ir_uart.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 led.o: led.c led.h ../../drivers/avr/pio.h ../../drivers/avr/system.h

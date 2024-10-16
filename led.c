@@ -5,7 +5,6 @@
 */
 
 #include "led.h"
-#include "pio.h"
 
 //use pio module to access blue LED
 #define LED_PIO PIO_DEFINE(PORT_C, 2)

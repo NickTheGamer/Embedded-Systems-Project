@@ -5,8 +5,6 @@
 */
 
 #include "ir.h"
-#include "ir_uart.h"
-#include "scoring.h"
 
 
 // Initalise the IR 
@@ -29,9 +27,9 @@ uint8_t ir_receive(char character_selected)
 {
     if (ir_uart_read_ready_p())
     {
-        char temp = ir_uart_getc();
-        if (temp == 'R' || temp == 'P' || temp == 'S') {
-            compare(character_selected, temp);
+        char opponent_choice = ir_uart_getc();
+        if (opponent_choice == 'R' || opponent_choice == 'P' || opponent_choice == 'S') {
+            compare(character_selected, opponent_choice);
             return 0; //release navswitch
         }
     }

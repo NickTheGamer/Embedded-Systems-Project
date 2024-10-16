@@ -7,6 +7,7 @@
 #ifndef LED_H
 #define LED_H
 
+#include "pio.h"
 
 /** Turn LED1 on.  */
 void led_on (void);

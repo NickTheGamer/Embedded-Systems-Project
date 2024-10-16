@@ -29,8 +29,7 @@ int main (void)
 
     uint16_t led_tick = 0;
     bool led_is_on = 0;
-    bool locked_in_choice = 0;
-    bool led_flash = 0;
+    uint8_t locked_in_choice = 0;
 
     //initialise custom modules
     display_char_init (PACER_RATE, MESSAGE_RATE);
@@ -50,30 +49,31 @@ int main (void)
         display_char_update ();
         nav_update ();
 
-        locked_in_choice = navswitch_push (character_selected);
-
-        if (!locked_in_choice) {
+        if (locked_in_choice == 0) {
             character_selected = handle_navswitch_input(character_selected);
+            locked_in_choice = navswitch_push (character_selected);
         }
 
-        led_flash = !(ir_receive (character_selected));
-        
+        if (locked_in_choice == 1) {
+            locked_in_choice = ir_receive (character_selected);
+        }
+
         led_tick++;
 
-        if (led_flash) {
+        /*if (locked_in_choice == 1) {
             if (led_tick >= 200) {
-            if (!led_is_on) {
-                led_on();
-                led_is_on = 1;
+                if (!led_is_on) {
+                    led_on();
+                    led_is_on = 1;
             
-            } else if (led_is_on) {
-                led_off();
-                led_is_on = 0;
-            }
+                } else if (led_is_on) {
+                    led_off();
+                    led_is_on = 0;
+                }
             
-            led_tick = 0;
+                led_tick = 0;
             }
-        }
+        }*/
 
         display_character (character_selected);
         game_result = checkWin ();

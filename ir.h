@@ -8,6 +8,8 @@
 #ifndef IR_H
 #define IR_H
 
+#include "ir_uart.h"
+#include "scoring.h"
 #include <stdint.h>
 
 //initialise IR 
