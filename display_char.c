@@ -1,15 +1,17 @@
 /** @file display_char.c
-    @authors 
-    @date 
+    @authors N.H. Coetzee: nco63
+    @date started: 14/10/2024 last edited: 17/10/2024
     @brief implementation file for the display module
 */
 
 #include "display_char.h"
 
+//text macros for game ending
 #define WIN_TEXT "You Won!\0"
 #define LOSE_TEXT "You Lost :(\0"
 
 
+//initialise display
 void display_char_init (uint16_t pace_rate, uint16_t message_rate)
 {
     tinygl_init (pace_rate);
@@ -17,6 +19,7 @@ void display_char_init (uint16_t pace_rate, uint16_t message_rate)
     tinygl_text_speed_set (message_rate);
 }
 
+//display selected choice
 void display_character (char character)
 {
     char buffer[2];
@@ -25,6 +28,7 @@ void display_character (char character)
     tinygl_text (buffer);
 }
 
+//display text when game is finished
 void display_text (uint8_t result)
 {
     static bool first_time = 0;
@@ -41,6 +45,7 @@ void display_text (uint8_t result)
     }
 }
 
+//update every tick
 void display_char_update (void)
 {
     tinygl_update ();

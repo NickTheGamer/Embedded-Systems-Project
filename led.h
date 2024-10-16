@@ -1,6 +1,6 @@
 /** @file ir.h
     @authors N.H. Coetzee: nco63
-    @date 11/10/2024
+    @date started: 1/10/2024 last edited: 15/10/2024
     @brief header file for the IR communication module
 */
 

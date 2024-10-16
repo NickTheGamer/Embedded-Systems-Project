@@ -1,6 +1,6 @@
 /** @file nav.c
     @authors J.Cercado jce61, N.H. Coetzee nco63
-    @date 15/10/24
+    @date started: 13/10/24 last edited: 15/10/2024
     @brief implementation file for the navigation module
 */
 
@@ -57,6 +57,7 @@ char handle_navswitch_input(char character)
 }
 
 
+//update every tick
 void nav_update (void)
 {
     navswitch_update ();
@@ -67,7 +68,7 @@ uint8_t navswitch_push (void)
 {
     if (navswitch_push_event_p(NAVSWITCH_PUSH))
     {
-        return 1; //lock navswitch
+        return 1; //lock navswitch once choice made
     } else {
         return 0;
     }

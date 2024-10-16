@@ -1,6 +1,6 @@
 /** @file ir.c
     @authors Justin Cercado jce61, N.H. Coetzee nco63
-    @date 15/10/24
+    @date started: 12/10/24 last edited: 16/10/2024
     @brief implementation file for the IR communication module
 */
 
@@ -16,10 +16,10 @@ void ir_init(void)
 //Send a character from the navswitch
 void ir_send(char character)
 {
-    if (ir_uart_write_ready_p())
-    {
+    //if (ir_uart_write_ready_p())
+    //{
         ir_uart_putc(character);
-    }
+    //}
 }
 
 //Reciever

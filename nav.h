@@ -1,6 +1,6 @@
 /** @file nav.h
-    @authors J.Cercado jce61, N.H. Coetzee nco63
-    @date 15/10/24
+    @authors J.Cercado jce61
+    @date started 13/10/2024 last edited: 15/10/24
     @brief header file for the navigation module
 */
 

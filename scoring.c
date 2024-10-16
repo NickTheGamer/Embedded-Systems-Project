@@ -1,22 +1,22 @@
 /** @file scoring.c
     @authors N.H. Coetzee: nco63
-    @date started: 11/10/2024 last edited: 
+    @date started: 11/10/2024 last edited: 17/10/2024
     @brief implementation file for the scoring module
 */
 
 #include "scoring.h"
-#define GAME_COMPLETE 4
 #define MAX_SCORE 3
 #define ERROR 5
+#define WIN 1
+#define LOSE 0
+#define DRAW 2
+#define GAME_INCOMPLETE 3
+#define GAME_COMPLETE 4
 
 void scoring_init (void)
 {
     playerScore = 0;
     enemyScore = 0;
-    win = 1;
-    lose = 0;
-    draw = 2;
-    game_incomplete = 3;
     game_finished_bool = 0;
 }
 
@@ -56,14 +56,14 @@ uint8_t checkWin (void)
     if (game_finished_bool == 0) {
         if (playerScore >= MAX_SCORE && enemyScore < MAX_SCORE) {
             game_finished_bool = 1;
-            return win;
+            return WIN;
         } else if (enemyScore >= MAX_SCORE && playerScore < MAX_SCORE) {
             game_finished_bool = 1;
-            return lose;
+            return LOSE;
         }
 
         else {
-            return game_incomplete;
+            return GAME_INCOMPLETE;
         }
     }
 

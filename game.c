@@ -1,6 +1,6 @@
 /** @file game.c
     @authors N.H. Coetzee: nco63, J. Cercado: jce61
-    @date started: 09/10/2024 last updated: 15/10/2024
+    @date started: 09/10/2024 last updated: 17/10/2024
     @brief main loop for game
 */
 
@@ -44,10 +44,9 @@ void game_loop (uint8_t* locked_in_choice, char* character_selected)
         ir_tick++;
         if (ir_tick >= IR_TICK_RATE) {
             ir_send (*character_selected);
+            *locked_in_choice = ir_receive (*character_selected);
             ir_tick = 0;
         }
-
-        *locked_in_choice = ir_receive (*character_selected);
     }
 
     display_character (*character_selected);

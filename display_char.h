@@ -1,6 +1,6 @@
 /** @file display_char.h
-    @authors 
-    @date 
+    @authors N.H. Coetzee: nco63
+    @date started: 14/10/2024 last edited: 17/10/2024
     @brief header file for the display module
 */
 

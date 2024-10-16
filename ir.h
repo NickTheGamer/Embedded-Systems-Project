@@ -1,6 +1,6 @@
 /** @file ir.h
-    @authors Justin Cercado @jce61,  N.H. Coetzee nco63
-    @date 12/10/2024
+    @authors Justin Cercado @jce61
+    @date started/last edited: 12/10/2024
     @brief header file for the IR communication module
 */
 

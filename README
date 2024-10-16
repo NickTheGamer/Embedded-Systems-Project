@@ -2,6 +2,8 @@ Welcome to our Rock Paper Scissors Game!
 
 Instructions:
 
-1. 
-2. 
-3. 
+1. Use the navswitch to scroll between R, P and S
+2. Have one player click in the navswitch to select their choice
+3. Make sure LED stays lit to confirm navswitch pressed correctly
+4. Other player lock in their choice, blue LED on first player's funkit will dissapear once other player's choice correctly received
+5. Play a best of three! Ties do not add to either player's score
