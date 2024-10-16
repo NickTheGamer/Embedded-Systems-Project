@@ -22,6 +22,7 @@
 #define LOSE 0
 #define GAME_INCOMPLETE 3
 #define GAME_COMPLETE 4
+#define IR_TICK_RATE 200
 
 int main (void)
 {
@@ -33,6 +34,7 @@ int main (void)
     bool led_is_on = 0;
     uint8_t locked_in_choice = 0;
     uint8_t outcome = 0;
+    uint8_t ir_tick = 200;
     //uint8_t round_won;
 
     //initialise custom modules
@@ -56,16 +58,25 @@ int main (void)
         if (locked_in_choice == 0) {
             character_selected = handle_navswitch_input(character_selected);
             locked_in_choice = navswitch_push ();
+            led_off ();
+            //ir_tick = IR_TICK_RATE;
         }
 
         if (locked_in_choice == 1) {
-            //ir_send (character_selected);
+            
+            ir_tick++;
+            if (ir_tick >= IR_TICK_RATE) {
+                ir_send (character_selected);
+                ir_tick = 0;
+            }
+
             locked_in_choice = ir_receive (character_selected);
         }
         
         if (locked_in_choice == 1) {
             
-            led_tick += 1;
+            led_on ();
+            /*led_tick++;
 
             if (led_tick >= 200) {
                 if (!led_is_on) {
@@ -78,7 +89,7 @@ int main (void)
                 }
             
                 led_tick = 0;
-            }
+            }*/
         }
         
         game_result = checkWin ();
