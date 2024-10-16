@@ -30,8 +30,8 @@ int main (void)
     system_init ();
     pacer_init (PACER_RATE);
 
-    uint16_t led_tick = 0;
-    bool led_is_on = 0;
+    //uint16_t led_tick = 0;
+    //bool led_is_on = 0;
     uint8_t locked_in_choice = 0;
     uint8_t outcome = 0;
     uint8_t ir_tick = 200;
@@ -54,55 +54,42 @@ int main (void)
         pacer_wait ();
         display_char_update ();
         nav_update ();
-
-        if (locked_in_choice == 0) {
-
-            character_selected = handle_navswitch_input(character_selected);
-            locked_in_choice = navswitch_push ();
-            led_off ();
-            ir_tick = IR_TICK_RATE;
-        }
-
-        if (locked_in_choice == 1) {
-
-            ir_tick++;
-            if (ir_tick >= IR_TICK_RATE) {
-                ir_send (character_selected);
-                ir_tick = 0;
-            }
-
-            locked_in_choice = ir_receive (character_selected);
-        }
-        
-        if (locked_in_choice == 1) {
-            
-            led_on ();
-            /*led_tick++;
-
-            if (led_tick >= 200) {
-                if (!led_is_on) {
-                    led_on();
-                    led_is_on = 1;
-            
-                } else if (led_is_on) {
-                    led_off();
-                    led_is_on = 0;
-                }
-            
-                led_tick = 0;
-            }*/
-        }
         
         game_result = checkWin ();
 
         if (game_result == WIN) {
+            led_off ();
             outcome = WIN;
         } else if (game_result == LOSE) {
+            led_off ();
             outcome = LOSE;
         }
 
-        if (game_result == GAME_INCOMPLETE) {
+        else if (game_result == GAME_INCOMPLETE) {
+
+            if (locked_in_choice == 0) {
+
+                character_selected = handle_navswitch_input(character_selected);
+                locked_in_choice = navswitch_push ();
+                led_off ();
+                ir_tick = IR_TICK_RATE;
+            }
+
+            if (locked_in_choice == 1) {
+                
+                led_on ();
+
+                ir_tick++;
+                if (ir_tick >= IR_TICK_RATE) {
+                    ir_send (character_selected);
+                    ir_tick = 0;
+                }
+
+                locked_in_choice = ir_receive (character_selected);
+            }
+
             display_character (character_selected);
+
         } else if (game_result == GAME_COMPLETE) {
             display_text (outcome);
         }
