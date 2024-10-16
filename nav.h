@@ -9,6 +9,7 @@
 #define NAV_H
 
 #include "navswitch.h"
+#include "ir.h"
 
 //Initialise navswitch
 void nav_init (void);

@@ -72,7 +72,7 @@ ir.o: ir.c ir.h scoring.h
 led.o: led.c led.h ../../drivers/avr/pio.h ../../drivers/avr/system.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-nav.o: nav.c nav.h ../../drivers/navswitch.h
+nav.o: nav.c nav.h ../../drivers/navswitch.h ir.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 scoring.o: scoring.c scoring.h led.h

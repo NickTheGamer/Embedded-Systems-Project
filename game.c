@@ -50,7 +50,7 @@ int main (void)
         display_char_update ();
         nav_update ();
 
-        locked_in_choice = navswitch_push ();
+        locked_in_choice = navswitch_push (character_selected);
 
         if (!locked_in_choice) {
             character_selected = handle_navswitch_input(character_selected);

@@ -63,10 +63,11 @@ void nav_update (void)
 }
 
 
-bool navswitch_push (void)
+bool navswitch_push (char character)
 {
     if (navswitch_push_event_p(NAVSWITCH_PUSH))
     {
+        ir_send (character);
         return 1;
     } else {
         return 0;
