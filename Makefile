@@ -1,6 +1,6 @@
 # File:   Makefile
 # Authors: N. H. COETZEE, J. CERCADO
-# Date:   9 October 2024
+# Date:   started: 9 October 2024 last edited: 16/10/2024
 # Descr:  Makefile for Rock Paper Scissors
 
 # Definitions.
