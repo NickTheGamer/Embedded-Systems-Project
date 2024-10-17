@@ -13,13 +13,13 @@ void ir_init(void)
     ir_uart_init();
 }
 
-//Send a character from the navswitch
+//Send a character
 void ir_send(char character)
 {
-    //if (ir_uart_write_ready_p())
-    //{
+    if (ir_uart_write_ready_p())
+    {
         ir_uart_putc(character);
-    //}
+    }
 }
 
 //Reciever

@@ -54,10 +54,10 @@ void compare (char selfChoice, char enemyChoice)
 uint8_t checkWin (void)
 {
     if (game_finished_bool == 0) {
-        if (playerScore >= MAX_SCORE && enemyScore < MAX_SCORE) {
+        if (playerScore >= MAX_SCORE) { // && enemyScore < MAX_SCORE
             game_finished_bool = 1;
             return WIN;
-        } else if (enemyScore >= MAX_SCORE && playerScore < MAX_SCORE) {
+        } else if (enemyScore >= MAX_SCORE) { // && playerScore < MAX_SCORE
             game_finished_bool = 1;
             return LOSE;
         }
