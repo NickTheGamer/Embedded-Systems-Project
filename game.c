@@ -34,6 +34,7 @@ void game_loop (uint8_t* locked_in_choice, char* character_selected)
     static uint8_t ir_send_tick = IR_SEND_RATE;
     static uint8_t ir_receive_tick = IR_RECEIVE_RATE;
 
+    //choice not selected
     if (*locked_in_choice == 0) {
         
         led_off ();
@@ -42,6 +43,7 @@ void game_loop (uint8_t* locked_in_choice, char* character_selected)
         *locked_in_choice = navswitch_push ();
     }
 
+    //choice selected, send and receive
     if (*locked_in_choice == 1) {
                 
         led_on ();
@@ -59,6 +61,7 @@ void game_loop (uint8_t* locked_in_choice, char* character_selected)
         }
     }
 
+    //update display
     display_character (*character_selected);
 }
 
