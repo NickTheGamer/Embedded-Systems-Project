@@ -1,6 +1,6 @@
 /** @file scoring.h
     @authors N.H. Coetzee: nco63
-    @date started: 11/10/2024 last edited: 17/10/2024
+    @date started: 11/10/2024 last edited: 18/10/2024
     @brief header file for the scoring module
 */
 
