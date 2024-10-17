@@ -22,8 +22,10 @@
 #define LOSE 0
 #define GAME_INCOMPLETE 3
 #define GAME_COMPLETE 4
-#define IR_SEND_RATE 10
-#define IR_RECEIVE_RATE 10
+
+//IR constants
+#define IR_SEND_RATE 20
+#define IR_RECEIVE_RATE 20
 
 
 void game_loop (uint8_t* locked_in_choice, char* character_selected)
@@ -78,7 +80,7 @@ int main (void)
     uint8_t locked_in_choice = 0;
     uint8_t outcome = -1; //avoid initiliasing to 0 which = LOSE
     char character_selected = 'R';
-    uint8_t game_result = -1; //avoid initiliasing to 0 which = LOSE
+    uint8_t game_result = GAME_INCOMPLETE;
 
     while (1)
     {
@@ -92,7 +94,6 @@ int main (void)
         game_result = checkWin ();
 
         if (game_result == WIN) {
-            led_off ();
             outcome = WIN;
         } else if (game_result == LOSE) {
             led_off ();
