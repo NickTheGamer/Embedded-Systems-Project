@@ -12,9 +12,9 @@
 #include "led.h"
 
 //public scoring variables
-uint8_t playerScore;
-uint8_t enemyScore;
-uint8_t game_finished_bool;
+extern uint8_t playerScore;
+extern uint8_t enemyScore;
+extern uint8_t game_finished_bool;
 
 //initialise scores
 void scoring_init (void);

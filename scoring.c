@@ -1,6 +1,6 @@
 /** @file scoring.c
     @authors N.H. Coetzee: nco63
-    @date started: 11/10/2024 last edited: 17/10/2024
+    @date started: 11/10/2024 last edited: 18/10/2024
     @brief implementation file for the scoring module
 */
 
@@ -12,6 +12,11 @@
 #define DRAW 2
 #define GAME_INCOMPLETE 3
 #define GAME_COMPLETE 4
+
+uint8_t playerScore = 0;
+uint8_t enemyScore = 0;
+uint8_t game_finished_bool = 0;
+
 
 void scoring_init (void)
 {
