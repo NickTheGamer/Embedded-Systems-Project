@@ -33,11 +33,11 @@ void game_loop (uint8_t* locked_in_choice, char* character_selected)
     static uint8_t ir_receive_tick = IR_RECEIVE_RATE;
 
     if (*locked_in_choice == 0) {
+        
         led_off ();
+
         *character_selected = handle_navswitch_input(*character_selected);
         *locked_in_choice = navswitch_push ();
-        ir_send_tick = 0;
-        ir_receive_tick = 0;
     }
 
     if (*locked_in_choice == 1) {
@@ -76,9 +76,9 @@ int main (void)
 
     //Variables to display and receive characters and the game results
     uint8_t locked_in_choice = 0;
-    uint8_t outcome = 0;
+    uint8_t outcome = -1; //avoid initiliasing to 0 which = LOSE
     char character_selected = 'R';
-    uint8_t game_result;
+    uint8_t game_result = -1; //avoid initiliasing to 0 which = LOSE
 
     while (1)
     {
