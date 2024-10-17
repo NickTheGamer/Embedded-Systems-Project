@@ -24,8 +24,8 @@
 #define GAME_COMPLETE 4
 
 //IR constants
-#define IR_SEND_RATE 20
-#define IR_RECEIVE_RATE 20
+#define IR_SEND_RATE 10
+#define IR_RECEIVE_RATE 10
 
 
 void game_loop (uint8_t* locked_in_choice, char* character_selected)
