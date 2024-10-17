@@ -14,7 +14,7 @@
 #include "led.h"
 
 //preprocessor constants for pacer
-#define PACER_RATE 500
+#define PACER_RATE 300
 #define MESSAGE_RATE 10
 
 //constants for game ending conditions
@@ -103,7 +103,6 @@ int main (void)
         else if (game_result == GAME_INCOMPLETE) {
             
             game_loop(&locked_in_choice, &character_selected);
-
 
         //display text if complete
         } else if (game_result == GAME_COMPLETE) {
