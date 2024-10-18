@@ -25,4 +25,8 @@ void compare (char selfChoice, char enemyChoice);
 //checks if a player has won the game, returns 1 if you won, 0 if you lost and 3 if the game isn't finished
 uint8_t checkWin (void);
 
+
+//reset scores
+void scoring_reset (void);
+
 #endif

@@ -1,6 +1,6 @@
 /** @file display_char.c
     @authors N.H. Coetzee: nco63
-    @date started: 14/10/2024 last edited: 17/10/2024
+    @date started: 14/10/2024 last edited: 18/10/2024
     @brief implementation file for the display module
 */
 
@@ -12,7 +12,7 @@
 
 
 //initialise display
-void display_char_init (uint16_t pace_rate, uint16_t message_rate)
+void display_char_init (uint16_t pace_rate, uint8_t message_rate)
 {
     tinygl_init (pace_rate);
     tinygl_font_set (&font5x7_1);
@@ -49,4 +49,10 @@ void display_text (uint8_t result)
 void display_char_update (void)
 {
     tinygl_update ();
+}
+
+//reset
+void display_reset (void)
+{
+    tinygl_clear ();
 }

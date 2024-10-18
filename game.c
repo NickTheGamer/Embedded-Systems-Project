@@ -84,6 +84,7 @@ int main (void)
     uint8_t outcome = -1; //avoid initiliasing to 0 which = LOSE
     char character_selected = 'R';
     uint8_t game_result = GAME_INCOMPLETE;
+    uint8_t game_restart = 0;
 
     while (1)
     {
@@ -110,6 +111,21 @@ int main (void)
 
         //display text if complete
         } else if (game_result == GAME_COMPLETE) {
+
+            //poll navswitch push
+            game_restart = navswitch_push ();
+
+            //restart game
+            if (game_restart == 1) {
+                led_off ();
+                display_reset ();
+                character_selected = 'R';
+                game_restart = 0;
+                outcome = -1;
+                scoring_reset ();
+                game_result = GAME_INCOMPLETE;
+            }
+
             display_text (outcome);
         }
 

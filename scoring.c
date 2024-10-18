@@ -74,3 +74,8 @@ uint8_t checkWin (void)
 
     return GAME_COMPLETE;
 }
+
+void scoring_reset (void)
+{
+    scoring_init ();
+}
