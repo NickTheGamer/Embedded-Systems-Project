@@ -1,10 +1,7 @@
-Welcome to our Rock Paper Scissors Game!
+# Dependencies
 
-Instructions:
+This project requires a custom board that is not available to the public, however the code is still a good showcase of skills learnt.
 
-1. Use the navswitch to scroll between R, P and S
-2. Have one player click in the navswitch to select their choice
-3. Make sure LED stays lit to confirm navswitch pressed correctly
-4. Other player lock in their choice, blue LED on first player's funkit will dissapear once other player's choice correctly received
-5. Play first to three! Ties do not add to either player's score
-6. Push the navswitch to restart the game
+# Acknowledgements
+
+This was a group project that was developed by me and my peer Justin Cercado.
