@@ -1,6 +1,7 @@
 Dependencies:
 
-This project requires a custom board that is not available to the public, however the code is still a good showcase of skills learnt.
+This project requires a custom board and proprietary software from the University of Canterbury that is not available to the public, 
+however all source code included is custom a good showcase of Embedded Systems programming.
 
 Acknowledgements:
 
